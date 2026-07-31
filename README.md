@@ -4,6 +4,10 @@ A study kit that turns Claude Code into a tutor for Anthropic's **Claude Certifi
 Foundations** exam: all 30 task statements, a vetted source for each, and a fixed 47-unit running
 order to work through them in.
 
+**64 of its 67 sources are Anthropic's own documentation** — not blog summaries, not a scraped
+question bank. **And the teaching method comes from the exam guide itself**: its sample questions and
+answer rationales are what decide how a tutor drills you.
+
 Written against *Exam Guide v1.0, effective July 2026*.
 
 ## Running a session
