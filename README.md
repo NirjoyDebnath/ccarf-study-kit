@@ -1,29 +1,14 @@
 # CCAR-F Study Kit
 
-Three files that turn Claude Code into a tutor for Anthropic's **Claude Certified Architect –
-Foundations** exam.
+A study kit that turns Claude Code into a tutor for Anthropic's **Claude Certified Architect –
+Foundations** exam: all 30 task statements, a vetted source for each, and a fixed 47-unit running
+order to work through them in.
 
 Written against *Exam Guide v1.0, effective July 2026*.
 
-**This is not a question bank.** No leaked items, no answer keys, nothing to memorise. It is the
-exam's 30 task statements, a vetted source for every one of them, a fixed 40-unit running order, and
-a brief that tells a tutor how to drill judgment rather than definitions — because judgment is what
-the exam scores.
+## Running a session
 
-## What's in it
-
-| File | What it holds |
-|---|---|
-| `EXAM-OBJECTIVES.md` | All 30 task statements across 5 domains — §6 of the exam guide, reproduced verbatim |
-| `RESOURCES.md` | What to teach each statement from: two or three vetted sources, plus a written tutor prompt |
-| `TEACHING-BRIEF.md` | How to teach it, how to write exam-faithful practice items, and the 40-unit running order |
-
-The running order matters more than it sounds. Thirty of the forty units are lessons; the other ten
-are the exam guide's own hands-on exercises and scenario drills, gated so you attempt each one only
-after every domain it depends on has been taught. Seven of them fall *after* the last lesson — so
-finishing the lessons is about four-fifths of the work.
-
-## Start here
+### ① Set it up — once
 
 ```bash
 git clone https://github.com/NirjoyDebnath/ccarf-study-kit
@@ -31,72 +16,121 @@ cd ccarf-study-kit
 npx skills add mattpocock/skills --skill teach -g -a claude-code
 ```
 
-Then open Claude Code in that directory and run:
+Then open Claude Code in that directory:
 
 ```
 /teach CCAR-F
 ```
 
-It will ask why you're taking the exam, write a `MISSION.md`, and start at unit 1. Everything it
-generates — lessons, records, notes — stays in your clone and is gitignored.
+You get **one question** — how much you've actually built with Claude Code and the Agent SDK — and
+then unit 1 starts. Everything generated from here on (lessons, records, notes) stays in your clone
+and is gitignored.
 
-**Later sessions.** Run `/teach` with no argument to continue where you left off — it reads your
-learning records to work out what's next.
+> **Every lesson ends with questions.** Not definitions — scenario items written in the exam's own
+> shape: a production symptom, four defensible options, and a rationale for each. You're graded on the
+> *reason* you picked, not the label, and every miss is logged against its task statement so the holes
+> are findable later.
 
-**Jumping to a unit.** Name it: `/teach task statement 3.4`, or `/teach plan mode vs direct
-execution`. Useful when you already know your weak domain, or when a scenario drill exposes a hole.
-The running order is a default, not a rail.
+### ② Come back — every session after
 
-**Steering the session.** Ask for what the exam actually does to you — scenario questions rather than
-definitions, and multiple-response items when you want them. The guide says the exam uses them but no
-published example exists, so treat the shape of any you're given as an educated guess.
+```
+/teach
+```
 
-You also need **your own copy of the exam guide PDF**. It's free with a signup at Anthropic's Partner
-Academy, and the kit is deliberately built to sit alongside it rather than replace it: the four
-preparation exercises and seven shorter activities live in the guide's §8 and §7, and the kit points
-at them rather than paraphrasing them.
+No arguments, no questions. It reads `lessons/`, finds the first unit you haven't done, and teaches
+it. It won't ask how the last one went — a lesson file on disk *is* the answer.
 
-## Why trust it
+### ③ Jump to any unit — whenever you want
 
-Because you can check it. `EXAM-OBJECTIVES.md` reproduces §6 of the exam guide **verbatim** — not
-paraphrased, not "based on" — so you can diff it against your own copy. Every source is first-party
-and free. Nothing came from a scraped question bank.
+```
+/teach task statement 3.4
+/teach plan mode vs direct execution
+```
 
-`RESOURCES.md` also carries a **Terminology drift** section listing what popular guides currently get
-wrong about this exam — the task-statement count, the fee, the item formats, renamed tools. Some of
-them are quite popular guides.
+The running order is a default, not a rail. Jump when you already know your weak domain, or when a
+scenario drill exposes a hole.
+
+### ④ Keep what you asked — after a lesson
+
+```
+/highlight
+```
+
+A lesson records what was *taught*; it can't record what you *asked*. `/highlight` mines the session
+for your questions, the beliefs that turned out to be wrong, and the analogy that finally made it
+land — then writes them into that lesson's own file, so re-reading it later returns the struggle as
+well as the teaching. Re-run it and the block is merged, not duplicated.
+
+Worth doing on this exam in particular: a boundary you personally found confusing is a preview of a
+distractor you'll meet again.
+
+## What's in it
+
+| File | What it holds |
+|---|---|
+| `EXAM-OBJECTIVES.md` | All 30 task statements across 5 domains — §6 of the exam guide, reproduced verbatim |
+| `RESOURCES.md` | What to teach each statement from: two or three vetted sources, plus a written tutor prompt |
+| `TEACHING-BRIEF.md` | How to teach it, how to write exam-faithful practice items, and the 47-unit running order |
+| `exam/` | The exam guide PDF itself — v1.0, July 2026 |
+
+The running order matters more than it sounds. Thirty of the forty-seven units are lessons; the other
+seventeen are the exam guide's own hands-on exercises, activities and scenario drills, placed so you
+attempt each one only after the domains it depends on have been taught. Nine of them fall *after* the
+last lesson — so finishing the lessons is under two-thirds of the course.
 
 <details>
-<summary><strong>Using it without the <code>teach</code> skill</strong></summary>
+<summary><strong>How it's built</strong></summary>
 
-The kit works on its own. `RESOURCES.md` opens with a five-step loop that needs nothing installed:
+**1 · Sources collected.** 67 unique sources, cited 174 times across the 30 statements — **64 of the
+67 are official Anthropic documentation**: 31 Claude Code docs, 17 platform docs, 5 engineering posts,
+4 Academy courses, 3 claude.com pages, 2 Anthropic GitHub tutorials, 2 MCP spec pages. The other 3 are
+write-ups by people who sat the exam. Nothing scraped, everything free. They're filed *per task
+statement*, each entry saying what that page teaches for that statement — so you read two or three
+pages per unit, not a reading list.
 
-1. Pick one task statement — your weakest domain, or the running order in `TEACHING-BRIEF.md` §7
-2. Paste that statement's tutor prompt plus its two or three most relevant sources into a session
-3. Demand scenario questions, not definitions
-4. Ask for multiple-response items when you want them
-5. Log every miss by **task statement number**, not by topic — that's how you find the hole
+**2 · Teaching tone set to what the exam demands.** The exam scores judgment in production scenarios,
+not definitions. `TEACHING-BRIEF.md` encodes that from the exam guide's own sample questions and
+answer rationales, read alongside the sources: teach the mechanism beneath a statement, grade on the
+reason not the label, write items in the exam's shape, gate the hands-on work until its domains are
+taught.
 
-You lose the lesson files, the progress records and the spacing that `teach` manages. You keep the
-sources, the prompts and the running order, which is most of the value.
+**3 · Objectives kept verbatim.** `EXAM-OBJECTIVES.md` is §6 of the guide, word for word — every task
+statement with the knowledge and skills measured against it. Exam items are written against those 30
+statements, so a paraphrase would silently edit the syllabus.
+
+**4 · `teach` turns all three into lessons.** Objectives for scope, resources for grounding, brief for
+method — one HTML lesson per unit, with questions at the end. The kit supplies the material; `teach`
+supplies the session.
 
 </details>
 
 <details>
-<summary><strong>What it generates, and why none of it is committed</strong></summary>
+<summary><strong>Limitations</strong></summary>
 
-`teach` treats your clone as a workspace and writes `MISSION.md`, `NOTES.md`, `lessons/`,
-`reference/`, `assets/` and `learning-records/` into it. All of that is gitignored on purpose — it's
-one learner's progress, not the kit. Keeping it out means you can `git pull` kit updates into a clone
-you've been studying in for a month without conflicts.
+**A lesson takes 5–10 minutes to generate** before you can start reading it — it's written for you,
+from sources fetched in that session, not served from disk. The first one runs longer still, because
+it also builds the shared stylesheet and quiz widget that every later lesson reuses.
 
-The repo also ships a `/highlight` skill. Run it after a lesson and it folds the session's questions
-and corrected misconceptions back into that lesson's own HTML file, so re-reading the lesson later
-returns the struggle as well as the teaching.
+**Some material lives only in the exam guide** — bundled here as `exam/`. The four preparation
+exercises (§8) and seven shorter activities (§7) are named and placed in the running order, but their
+steps are not reproduced. Five concepts have no public documentation behind them at all and must be
+read from the guide: Pydantic (4.4), stratified sampling and field-level confidence (5.5), crash
+recovery using manifests (1.3), the `"other"` + detail-string schema pattern (4.3), and temporal data
+handling (5.6).
+
+**No practice questions ship with it.** The brief teaches a tutor to write items in the exam's shape
+instead — good for drilling judgment, not a mock exam.
+
+**Multiple-response items are inferred.** The guide says the exam uses them; no example has ever been
+published, so any you're given is a guess at the shape.
+
+**Lessons are generated, not shipped.** Nothing in `lessons/` is a reviewed artefact — two people
+working through this kit get two different courses.
 
 </details>
 
-## Scope, credit, license
+<details>
+<summary><strong>Scope, credit, license</strong></summary>
 
 The kit covers what the exam guide says is tested and deliberately stops there — `RESOURCES.md` ends
 with the guide's §17 out-of-scope list, reproduced in full, because the most expensive mistake in prep
@@ -108,4 +142,9 @@ items instead, which is the part community banks get wrong.
 The `teach` skill is [Matt Pocock's](https://github.com/mattpocock/skills), MIT licensed, and is not
 part of this repo.
 
-This kit is MIT licensed — see [`LICENSE`](./LICENSE).
+This kit is MIT licensed — see [`LICENSE`](./LICENSE). That covers the writing in this repo only. The
+PDF in `exam/` is Anthropic's *Claude Certified Architect – Foundations Exam Guide*, v1.0 (July 2026),
+included for convenience and distributed free through the Anthropic Partner Academy — it remains
+Anthropic's work and the MIT grant does not extend to it.
+
+</details>

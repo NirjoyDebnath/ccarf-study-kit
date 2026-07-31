@@ -84,7 +84,7 @@ what do you do?"* — though some items are closer to configuration recall than 
 ## 3. Session protocol
 
 Generic pedagogy — one concept per lesson, always quiz, balanced option lengths, retrieval and spacing
-— is handled by the `teach` skill. Only these four are CCAR-F-specific:
+— is handled by the `teach` skill. Only these six are CCAR-F-specific:
 
 1. **Read order.** Target statement in `EXAM-OBJECTIVES.md` → its sources in `RESOURCES.md` → §1 and §2 of this file.
 2. **The bullets are the scope boundary and the floor — never the lesson plan.** They are terse scope
@@ -93,6 +93,33 @@ Generic pedagogy — one concept per lesson, always quiz, balanced option length
 3. **Grade on the reason, not the label.** A right answer for a wrong reason is a miss.
 4. **Log misses by task statement number, not topic.** "Weak on hooks" is not actionable. "1.4 and 1.5,
    both times the question was about *where* to enforce" is.
+5. **One question before lesson 1.** Ask how much the learner has actually built with Claude Code and
+   the Agent SDK — that alone sets how much mechanism to teach versus how fast to reach judgment
+   drills. Then start.
+6. **Resume by looking, not by asking.** A file in `lessons/` means that unit is done — never ask how
+   it went. Open a session by reading the directory and teaching the lowest-numbered unit with no
+   lesson file. If the files have gaps because the learner jumped around, ask which one to continue
+   from; that is the only resume question worth asking, and it is a choice, not an audit. Only the 30
+   lessons produce files — when the running order reaches one of the seventeen exercises, drills or
+   activities, raise it then rather than skipping past it or pre-asking sessions in advance.
+
+Closed-book recall at the start of a session is teaching, not admin — spaced retrieval is the method,
+and rules 5 and 6 do not curb it. What they curb is interviewing the learner about things the
+workspace already knows.
+
+**Depth is a lesson decision, not a profile.** At the top of a lesson, say how deep you intend to go
+and why this statement warrants it — "1.1 is mechanism-heavy and Domain 1 is 27%, so this one runs
+long." The learner redirects if they disagree. Record what they choose in `NOTES.md` and treat it as
+the default for the next lesson; ask again only when the statement's weight clearly differs from the
+last one. Never open a lesson with a menu.
+
+`MISSION.md`'s *Success looks like* is the honest test in this file's §8; its *Constraints* are the 47
+units and their gates; its *Out of scope* is the exam guide's §17 list reproduced in `RESOURCES.md`. Write those from the kit.
+For *Why*, use what the learner said when invoking the session — "my role requires it" is a sufficient
+mission for a certification with a fixed blueprint. Do not interview for a better one.
+
+Anything gated — the exam guide's §7/§8 material, an exam date — is raised at the unit that needs it,
+not at the start. A learner who wanted a questionnaire would not have typed `/teach`.
 
 ---
 
@@ -118,7 +145,7 @@ Generic pedagogy — one concept per lesson, always quiz, balanced option length
 - **Offer multiple-response items each lesson; don't impose them.** The exam guide's §3 says the exam
   uses them, so ask the learner whether they want some in this lesson's quiz. Default to single-answer
   when they don't — and whenever you do produce one, flag that its shape is inferred from the guide's
-  one-line description, since no published example exists (§1).
+  one-line description, since no published example exists (this file's §1).
 - **Distractors should be plausible mechanisms, mostly.** An option that is obviously silly tests
   nothing. But the guide's own items do sometimes use a named feature that doesn't exist, so an
   occasional "does this flag/setting actually exist?" item is faithful to the exam — just don't let it
@@ -150,7 +177,8 @@ part learners skip. Schedule them; don't leave them optional.
 | 4 | Multi-agent research pipeline | D1, D2, D5 | D5 |
 
 Full steps are in the exam guide's §8; the seven shorter activities are in its §7. Don't paraphrase
-them from memory — read them there. Exercise 2 unlocks earliest; the rest need Domain 5.
+them from memory — read them there; the guide is bundled at `exam/`. Exercise 2 unlocks earliest; the
+rest need Domain 5.
 
 An exercise attempted before every domain it reinforces has been taught teaches frustration, not
 judgment. Gate them.
@@ -178,14 +206,21 @@ guessing, not judgment.
 
 ## 7. The running order
 
-**40 units — 30 lessons, 4 exercises, 6 scenario drills.** Decided once, here, so it is not
-re-decided every session. A tutor follows this order; it does not invent units or reorder them.
+**47 units — 30 lessons, 4 exercises, 6 scenario drills, 7 short activities.** Decided once, here, so
+it is not re-decided every session. A tutor follows this order and does not invent units or reorder
+them on its own initiative — the learner may still start elsewhere, per the note on domain order below.
 
-**The course does not end at the last lesson.** Ten of the forty are exercises and drills, and
-seven of those fall after lesson 30 because they need Domain 5. Finishing the lessons is about
-four-fifths of the work — say so early, or the learner will stop at 30 believing they are done.
+**The course does not end at the last lesson.** Seventeen of the forty-seven are hands-on work rather
+than teaching, and nine of those fall after the final lesson because they need Domain 5. Finishing the
+lessons is under two-thirds of the course — say so early, or the learner will stop at the last lesson
+believing they are done.
 
-Gates below are the ones already set in §5 and §6; this section places them, it does not add any.
+Gates for the exercises and scenarios are the ones already set in this file's §5 and §6; this section
+places them, it does not add any. The seven guide-§7 activities are different: the guide states no
+prerequisites for
+them, so their placement here is **derived from their content** — each sits after the domain it
+exercises. Treat that as a reasoned default, not something the guide prescribes.
+
 The domain order is blueprint order, which is the default for a learner with no diagnostic — an
 individual who already knows their weakest domain should start there instead (`RESOURCES.md`).
 
@@ -199,53 +234,61 @@ individual who already knows their weakest domain should start there instead (`R
 | 5 | Agent SDK hooks | lesson | 1.5 |
 | 6 | Task decomposition (chaining vs dynamic) | lesson | 1.6 |
 | 7 | Session state: resume & fork | lesson | 1.7 |
+| 8 | Build an agent with the Claude Agent SDK | activity | guide §7 · Act 1 |
 | **Domain 2 — Tool Design & MCP Integration (18%)** ||||
-| 8 | Tool descriptions & boundaries | lesson | 2.1 |
-| 9 | Structured MCP errors | lesson | 2.2 |
-| 10 | Tool distribution & `tool_choice` | lesson | 2.3 |
-| 11 | MCP server integration | lesson | 2.4 |
-| 12 | Built-in tools | lesson | 2.5 |
+| 9 | Tool descriptions & boundaries | lesson | 2.1 |
+| 10 | Structured MCP errors | lesson | 2.2 |
+| 11 | Tool distribution & `tool_choice` | lesson | 2.3 |
+| 12 | MCP server integration | lesson | 2.4 |
+| 13 | Built-in tools | lesson | 2.5 |
+| 14 | Design and test MCP tools | activity | guide §7 · Act 3 |
 | **Domain 3 — Claude Code Configuration & Workflows (20%)** ||||
-| 13 | CLAUDE.md hierarchy & modular organization | lesson | 3.1 |
-| 14 | Slash commands & skills | lesson | 3.2 |
-| 15 | Path-specific rules | lesson | 3.3 |
-| 16 | Plan mode vs direct execution | lesson | 3.4 |
-| 17 | Iterative refinement | lesson | 3.5 |
-| 18 | Claude Code in CI/CD | lesson | 3.6 |
+| 15 | CLAUDE.md hierarchy & modular organization | lesson | 3.1 |
+| 16 | Slash commands & skills | lesson | 3.2 |
+| 17 | Path-specific rules | lesson | 3.3 |
+| 18 | Plan mode vs direct execution | lesson | 3.4 |
+| 19 | Iterative refinement | lesson | 3.5 |
+| 20 | Claude Code in CI/CD | lesson | 3.6 |
 | **▸ Gate — D1, D2, D3 taught** ||||
-| 19 | Claude Code for a team development workflow | exercise | §5 · Ex 2 |
-| 20 | Developer Productivity with Claude | scenario | §6 · Sc 4 |
+| 21 | Claude Code for a team development workflow | exercise | Ex 2 |
+| 22 | Developer Productivity with Claude | scenario | Sc 4 |
+| 23 | Configure Claude Code for a real project | activity | guide §7 · Act 2 |
 | **Domain 4 — Prompt Engineering & Structured Output (20%)** ||||
-| 21 | Explicit criteria / false positives | lesson | 4.1 |
-| 22 | Few-shot prompting | lesson | 4.2 |
-| 23 | Structured output via `tool_use` + JSON schema | lesson | 4.3 |
-| 24 | Validation, retry & feedback loops | lesson | 4.4 |
-| 25 | Batch processing | lesson | 4.5 |
-| 26 | Multi-instance / multi-pass review | lesson | 4.6 |
+| 24 | Explicit criteria / false positives | lesson | 4.1 |
+| 25 | Few-shot prompting | lesson | 4.2 |
+| 26 | Structured output via `tool_use` + JSON schema | lesson | 4.3 |
+| 27 | Validation, retry & feedback loops | lesson | 4.4 |
+| 28 | Batch processing | lesson | 4.5 |
+| 29 | Multi-instance / multi-pass review | lesson | 4.6 |
 | **▸ Gate — D4 taught** ||||
-| 27 | Claude Code in CI | scenario | §6 · Sc 5 |
+| 30 | Claude Code in CI | scenario | Sc 5 |
+| 31 | Build a structured data extraction pipeline | activity | guide §7 · Act 4 |
+| 32 | Practice prompt engineering techniques | activity | guide §7 · Act 5 |
 | **Domain 5 — Context Management & Reliability (15%)** ||||
-| 28 | Preserve critical info across long context | lesson | 5.1 |
-| 29 | Escalation & ambiguity resolution | lesson | 5.2 |
-| 30 | Error propagation across multi-agent | lesson | 5.3 |
-| 31 | Context in large codebase exploration | lesson | 5.4 |
-| 32 | Human review & confidence calibration | lesson | 5.5 |
-| 33 | Provenance & uncertainty in synthesis | lesson | 5.6 |
+| 33 | Preserve critical info across long context | lesson | 5.1 |
+| 34 | Escalation & ambiguity resolution | lesson | 5.2 |
+| 35 | Error propagation across multi-agent | lesson | 5.3 |
+| 36 | Context in large codebase exploration | lesson | 5.4 |
+| 37 | Human review & confidence calibration | lesson | 5.5 |
+| 38 | Provenance & uncertainty in synthesis | lesson | 5.6 |
 | **▸ Gate — D5 taught. Everything remaining unlocks here.** ||||
-| 34 | Multi-tool agent with escalation logic | exercise | §5 · Ex 1 |
-| 35 | Structured data extraction pipeline | exercise | §5 · Ex 3 |
-| 36 | Multi-agent research pipeline | exercise | §5 · Ex 4 |
-| 37 | Customer Support Agent | scenario | §6 · Sc 1 |
-| 38 | Code Generation with Claude Code | scenario | §6 · Sc 2 |
-| 39 | Multi-Agent Research | scenario | §6 · Sc 3 |
-| 40 | Structured Data Extraction | scenario | §6 · Sc 6 |
+| 39 | Multi-tool agent with escalation logic | exercise | Ex 1 |
+| 40 | Structured data extraction pipeline | exercise | Ex 3 |
+| 41 | Multi-agent research pipeline | exercise | Ex 4 |
+| 42 | Customer Support Agent | scenario | Sc 1 |
+| 43 | Code Generation with Claude Code | scenario | Sc 2 |
+| 44 | Multi-Agent Research | scenario | Sc 3 |
+| 45 | Structured Data Extraction | scenario | Sc 6 |
+| 46 | Study context management patterns | activity | guide §7 · Act 6 |
+| 47 | Review escalation and human-in-the-loop patterns | activity | guide §7 · Act 7 |
 
-**Separately, the seven shorter activities** in the exam guide's §7 are ungated and not placed
-here — the guide states no prerequisites for them. Read them there and fit them where they help.
+**The steps stay in the guide.** Units marked *exercise* or *activity* are named here and placed here;
+what to actually do is in the guide's §8 and §7 respectively, bundled at `exam/`. Read them there —
+don't paraphrase them from memory.
 
 **On numbering.** These are positions in a sequence, not filenames. Only the 30 lessons produce a
-lesson file, so unit numbers and lesson numbers diverge after unit 19 — log misses by **task
-statement**, per §3, and the discrepancy never matters.
+lesson file, so unit numbers and lesson numbers diverge after unit 8 — log misses by **task
+statement**, per this file's §3, and the discrepancy never matters.
 
 **On splitting.** Statements 1.7 and 2.2 each carry two concepts (resume *and* fork; two error
 mechanisms *and* four categories). Split either into two lessons if it runs long — that is a

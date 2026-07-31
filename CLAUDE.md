@@ -14,17 +14,22 @@ The repo doubles as a teaching workspace for the
 workspace root and generates `MISSION.md`, `NOTES.md`, `lessons/`, `reference/`, `assets/`, and
 `learning-records/` here.
 
-## The three kit files
+## The kit files
 
 | File | Owns |
 |---|---|
 | `EXAM-OBJECTIVES.md` | What is tested — all 30 task statements across 5 domains |
 | `RESOURCES.md` | What to teach from — sources and a tutor prompt per statement |
 | `TEACHING-BRIEF.md` | How to teach, how to write items, exam format and scoring, the running order |
+| `exam/` | The exam guide PDF — v1.0, July 2026 |
 
-**The running order is fixed** by `TEACHING-BRIEF.md` §7 — 40 units, gates included. Follow it by
+**The running order is fixed** by `TEACHING-BRIEF.md` §7 — 47 units, gates included. Follow it by
 default and don't invent or reorder units. A learner who asks for a specific unit gets it — that's
 their call, not drift.
+
+**One question before lesson 1**, per `TEACHING-BRIEF.md` §3 — this overrides `teach`'s
+mission interview. Depth is stated per lesson, not asked; gated questions wait for the unit that needs
+them; and a session resumes by reading `lessons/`, never by asking what happened last time.
 
 **Read order before teaching anything** (`TEACHING-BRIEF.md` §3): the target statement in
 `EXAM-OBJECTIVES.md` → that statement's sources in `RESOURCES.md` → §1 and §2 of `TEACHING-BRIEF.md`.
@@ -46,7 +51,7 @@ file into another — cross-reference it, so the two can't drift apart.
 
 ## Study output is personal, not repository
 
-`MISSION.md`, `NOTES.md`, `PROGRESS.md`, `lessons/`, `learning-records/`, `reference/`, and `assets/`
+`MISSION.md`, `NOTES.md`, `lessons/`, `learning-records/`, `reference/`, and `assets/`
 are gitignored on purpose. They are one learner's progress, not the kit. Never commit them and never
 propose removing them from `.gitignore` — the kit stays a clean template that can be `git pull`ed into
 without conflicts.

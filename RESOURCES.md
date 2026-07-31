@@ -515,7 +515,7 @@ are complete current page lists. Use them to confirm a doc exists instead of gue
 
 # Official program
 
-- **Claude Certified Architect – Foundations Exam Guide (PDF)** — Anthropic, v1.0 (July 2026) *(free signup)* — authoritative for *what is tested*: the 5 domains, all 30 task statements, 12 sample questions with answer rationales, and the appendix concept list. It sits behind Skilljar registration on Anthropic's partner learning domain; register the free account and download it directly. **The only officially-authored practice items in existence.** Do them last and treat any disagreement with a community answer key as settled in Anthropic's favour.
+- **Claude Certified Architect – Foundations Exam Guide (PDF)** — Anthropic, v1.0 (July 2026) *(free signup)* — authoritative for *what is tested*: the 5 domains, all 30 task statements, 12 sample questions with answer rationales, and the appendix concept list. Bundled in this repo at `exam/`. It also sits behind Skilljar registration on Anthropic's partner learning domain — register a free account there to check for a newer version. **The only officially-authored practice items in existence.** Do them last and treat any disagreement with a community answer key as settled in Anthropic's favour.
 - **Anthropic Academy** — `anthropic.skilljar.com` *(free signup)* — the four free courses listed above under their relevant task statements (Claude Code in Action, Introduction to MCP, Introduction to Agent Skills, Building with the Claude API) are the official prep path.
 
 # Wisdom (Communities)
@@ -549,7 +549,7 @@ Community guides and older posts are stale on all of these. An exam item may use
 - **4.5 (Message Batches API)** — exactly one authoritative source. It is enough, since the exam tests the batch-vs-synchronous tradeoff rather than the API surface.
 - **No Messages API reference is listed.** Beware `docs.anthropic.com/en/api/complete`, which several older guides cite — it is the legacy Text Completions endpoint, not Messages. Verify a current URL before relying on one.
 - **No normative MCP *resources* spec is listed** — only the Tools spec. `modelcontextprotocol.io/docs/learn/server-concepts` covers resources well enough for 2.4; find a current spec URL if you need protocol-level detail, and note that `spec.modelcontextprotocol.io` is a stale host.
-- **Four pages carry a medium-confidence marker** — `strict-tool-use`, `manage-tool-context`, `programmatic-tool-calling` and `advisor-tool`. All four are live; their annotations are less thoroughly checked than the rest, so confirm a specific detail on the page before leaning on it.
+- **Three pages carry a medium-confidence marker** — `manage-tool-context`, `programmatic-tool-calling` and `advisor-tool`. All three are live; their annotations are less thoroughly checked than the rest, so confirm a specific detail on the page before leaning on it. (`strict-tool-use` carries a different caveat: the relevant fact is stated on the troubleshooting-tool-use page, not that one.)
 - **Practice material** — unofficial question banks and mock exams exist, but they are not listed here: this file grounds a tutor's *teaching*, and practice material is for self-testing. Their answer keys are also unreliable — where one disagrees with the exam guide or the official docs, the key is wrong.
 
 # Out of scope — do not study
@@ -559,20 +559,20 @@ because the most expensive mistake in prep is studying something that cannot be 
 
 - Fine-tuning Claude models or training custom models
 - Claude API authentication, billing, or account management
-- Detailed implementation of specific programming languages or frameworks, beyond what tool and
-  schema configuration requires
-- Deploying or hosting MCP servers — infrastructure, networking, container orchestration
+- Detailed implementation of specific programming languages or frameworks (beyond what's needed for
+  tool and schema configuration)
+- Deploying or hosting MCP servers (infrastructure, networking, container orchestration)
 - Claude's internal architecture, training process, or model weights
 - Constitutional AI, RLHF, or safety training methodologies
 - Embedding models or vector database implementation details
-- Computer use — browser automation, desktop interaction
+- Computer use (browser automation, desktop interaction)
 - Vision / image analysis capabilities
 - Streaming API implementation or server-sent events
 - Rate limiting, quotas, or API pricing calculations
 - OAuth, API key rotation, or authentication protocol details
 - Specific cloud provider configurations (AWS, GCP, Azure)
 - Performance benchmarking or model comparison metrics
-- Prompt caching implementation details — beyond knowing it exists
+- Prompt caching implementation details (beyond knowing it exists)
 - Token counting algorithms or tokenization specifics
 
 Also not tested, though not in §17's list: exam logistics — registration, scheduling, policies, the
