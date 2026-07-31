@@ -16,9 +16,9 @@ That second sentence is what makes this file load-bearing.
 carry their weight from §4's blueprint table, and the `Task Statement N.M:` labels are rendered as
 markdown headings. Nothing else was added, removed, or reworded.
 
-The guide is bundled in this repo at `exam/`; it is distributed through the Anthropic Partner Academy,
-which §11 names as the registration channel. This file is a working aid, not a replacement for reading the guide
-in full.
+The guide is bundled in this repo at `exam-guide/`; it is distributed through the Anthropic Partner
+Academy, which §11 names as the registration channel. This file is a working aid, not a replacement
+for reading the guide in full.
 
 **30 task statements** across 5 domains — D1 7 · D2 5 · D3 6 · D4 6 · D5 6. Any source claiming 27 is
 wrong.

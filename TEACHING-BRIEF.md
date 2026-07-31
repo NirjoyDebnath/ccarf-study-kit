@@ -177,7 +177,7 @@ part learners skip. Schedule them; don't leave them optional.
 | 4 | Multi-agent research pipeline | D1, D2, D5 | D5 |
 
 Full steps are in the exam guide's §8; the seven shorter activities are in its §7. Don't paraphrase
-them from memory — read them there; the guide is bundled at `exam/`. Exercise 2 unlocks earliest; the
+them from memory — read them there; the guide is bundled at `exam-guide/`. Exercise 2 unlocks earliest; the
 rest need Domain 5.
 
 An exercise attempted before every domain it reinforces has been taught teaches frustration, not
@@ -283,7 +283,7 @@ individual who already knows their weakest domain should start there instead (`R
 | 47 | Review escalation and human-in-the-loop patterns | activity | guide §7 · Act 7 |
 
 **The steps stay in the guide.** Units marked *exercise* or *activity* are named here and placed here;
-what to actually do is in the guide's §8 and §7 respectively, bundled at `exam/`. Read them there —
+what to actually do is in the guide's §8 and §7 respectively, bundled at `exam-guide/`. Read them there —
 don't paraphrase them from memory.
 
 **On numbering.** These are positions in a sequence, not filenames. Only the 30 lessons produce a

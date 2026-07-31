@@ -75,7 +75,7 @@ distractor you'll meet again.
 | `EXAM-OBJECTIVES.md` | All 30 task statements across 5 domains — §6 of the exam guide, reproduced verbatim |
 | `RESOURCES.md` | What to teach each statement from: two or three vetted sources, plus a written tutor prompt |
 | `TEACHING-BRIEF.md` | How to teach it, how to write exam-faithful practice items, and the 47-unit running order |
-| `exam/` | The exam guide PDF itself — v1.0, July 2026 |
+| `exam-guide/` | The exam guide PDF itself — v1.0, July 2026 |
 
 The running order matters more than it sounds. Thirty of the forty-seven units are lessons; the other
 seventeen are the exam guide's own hands-on exercises, activities and scenario drills, placed so you
@@ -142,8 +142,8 @@ The `teach` skill is [Matt Pocock's](https://github.com/mattpocock/skills), MIT 
 part of this repo.
 
 This kit is MIT licensed — see [`LICENSE`](./LICENSE). That covers the writing in this repo only. The
-PDF in `exam/` is Anthropic's *Claude Certified Architect – Foundations Exam Guide*, v1.0 (July 2026),
-included for convenience and distributed free through the Anthropic Partner Academy — it remains
-Anthropic's work and the MIT grant does not extend to it.
+PDF in `exam-guide/` is Anthropic's *Claude Certified Architect – Foundations Exam Guide*, v1.0
+(July 2026), included for convenience and distributed free through the Anthropic Partner Academy — it
+remains Anthropic's work and the MIT grant does not extend to it.
 
 </details>

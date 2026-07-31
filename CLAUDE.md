@@ -21,7 +21,7 @@ workspace root and generates `MISSION.md`, `NOTES.md`, `lessons/`, `reference/`,
 | `EXAM-OBJECTIVES.md` | What is tested — all 30 task statements across 5 domains |
 | `RESOURCES.md` | What to teach from — sources and a tutor prompt per statement |
 | `TEACHING-BRIEF.md` | How to teach, how to write items, exam format and scoring, the running order |
-| `exam/` | The exam guide PDF — v1.0, July 2026 |
+| `exam-guide/` | The exam guide PDF — v1.0, July 2026 |
 
 **The running order is fixed** by `TEACHING-BRIEF.md` §7 — 47 units, gates included. Follow it by
 default and don't invent or reorder units. A learner who asks for a specific unit gets it — that's

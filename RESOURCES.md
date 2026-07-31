@@ -515,7 +515,7 @@ are complete current page lists. Use them to confirm a doc exists instead of gue
 
 # Official program
 
-- **Claude Certified Architect – Foundations Exam Guide (PDF)** — Anthropic, v1.0 (July 2026) *(free signup)* — authoritative for *what is tested*: the 5 domains, all 30 task statements, 12 sample questions with answer rationales, and the appendix concept list. Bundled in this repo at `exam/`. It also sits behind Skilljar registration on Anthropic's partner learning domain — register a free account there to check for a newer version. **The only officially-authored practice items in existence.** Do them last and treat any disagreement with a community answer key as settled in Anthropic's favour.
+- **Claude Certified Architect – Foundations Exam Guide (PDF)** — Anthropic, v1.0 (July 2026) *(free signup)* — authoritative for *what is tested*: the 5 domains, all 30 task statements, 12 sample questions with answer rationales, and the appendix concept list. Bundled in this repo at `exam-guide/`. It also sits behind Skilljar registration on Anthropic's partner learning domain — register a free account there to check for a newer version. **The only officially-authored practice items in existence.** Do them last and treat any disagreement with a community answer key as settled in Anthropic's favour.
 - **Anthropic Academy** — `anthropic.skilljar.com` *(free signup)* — the four free courses listed above under their relevant task statements (Claude Code in Action, Introduction to MCP, Introduction to Agent Skills, Building with the Claude API) are the official prep path.
 
 # Wisdom (Communities)
