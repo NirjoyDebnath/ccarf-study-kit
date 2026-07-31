@@ -115,15 +115,10 @@ supplies the session.
 from sources fetched in that session, not served from disk. The first one runs longer still, because
 it also builds the shared stylesheet and quiz widget that every later lesson reuses.
 
-**Some material lives only in the exam guide** — bundled here as `exam/`. The four preparation
-exercises (§8) and seven shorter activities (§7) are named and placed in the running order, but their
-steps are not reproduced. Five concepts have no public documentation behind them at all and must be
-read from the guide: Pydantic (4.4), stratified sampling and field-level confidence (5.5), crash
-recovery using manifests (1.3), the `"other"` + detail-string schema pattern (4.3), and temporal data
-handling (5.6).
-
-**No practice questions ship with it.** The brief teaches a tutor to write items in the exam's shape
-instead — good for drilling judgment, not a mock exam.
+**No practice questions ship with it.** Claude writes them during the session. Their structure follows
+the exam guide's own sample questions and rationales, plus the format conventions of an existing mock
+paper — but the content is written fresh each time and has no vetted answer key. Good for drilling
+judgment; not a fixed mock exam.
 
 **Multiple-response items are inferred.** The guide says the exam uses them; no example has ever been
 published, so any you're given is a guess at the shape.
