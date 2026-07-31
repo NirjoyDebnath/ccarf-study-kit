@@ -40,25 +40,21 @@ Then open Claude Code in that directory and run:
 It will ask why you're taking the exam, write a `MISSION.md`, and start at unit 1. Everything it
 generates — lessons, records, notes — stays in your clone and is gitignored.
 
+**Later sessions.** Run `/teach` with no argument to continue where you left off — it reads your
+learning records to work out what's next.
+
+**Jumping to a unit.** Name it: `/teach task statement 3.4`, or `/teach plan mode vs direct
+execution`. Useful when you already know your weak domain, or when a scenario drill exposes a hole.
+The running order is a default, not a rail.
+
+**Steering the session.** Ask for what the exam actually does to you — scenario questions rather than
+definitions, and multiple-response items when you want them. The guide says the exam uses them but no
+published example exists, so treat the shape of any you're given as an educated guess.
+
 You also need **your own copy of the exam guide PDF**. It's free with a signup at Anthropic's Partner
 Academy, and the kit is deliberately built to sit alongside it rather than replace it: the four
 preparation exercises and seven shorter activities live in the guide's §8 and §7, and the kit points
 at them rather than paraphrasing them.
-
-## What a session actually looks like
-
-You pick a task statement and paste its tutor prompt. They're written, not generated — here is 1.1,
-verbatim from `RESOURCES.md`:
-
-> Teach me task statement 1.1. Enumerate every `stop_reason` value with its correct handling, then
-> contrast three ways an engineer could decide "the agent is done": (a) parsing the assistant's text
-> for phrases like "task complete", (b) an iteration counter, (c) `stop_reason`. Explain exactly why
-> (a) and (b) fail and what production failure each causes. Then quiz me on `pause_turn` vs
-> `max_tokens` vs `model_context_window_exceeded` — which are truncation, which are continuation, and
-> what you send back for each. Finally: what is the difference between the API's `stop_reason` and the
-> Agent SDK's `ResultMessage.subtype`, and when would an exam item use one to distract from the other?
-
-There is one of those for all 30 statements.
 
 ## Why trust it
 
@@ -69,11 +65,6 @@ and free. Nothing came from a scraped question bank.
 `RESOURCES.md` also carries a **Terminology drift** section listing what popular guides currently get
 wrong about this exam — the task-statement count, the fee, the item formats, renamed tools. Some of
 them are quite popular guides.
-
-And on the subject of doing your own research, `RESOURCES.md` has this to say:
-
-> There is no community for this exam. No Reddit thread, no Hacker News thread, no findable X/Twitter
-> thread, no Discord or forum. This was searched for specifically — don't spend time looking.
 
 <details>
 <summary><strong>Using it without the <code>teach</code> skill</strong></summary>

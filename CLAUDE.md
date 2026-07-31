@@ -22,8 +22,9 @@ workspace root and generates `MISSION.md`, `NOTES.md`, `lessons/`, `reference/`,
 | `RESOURCES.md` | What to teach from — sources and a tutor prompt per statement |
 | `TEACHING-BRIEF.md` | How to teach, how to write items, exam format and scoring, the running order |
 
-**The running order is fixed** by `TEACHING-BRIEF.md` §7 — 40 units, gates included. Follow it; don't
-invent units, reorder them, or decide what to teach next ad hoc.
+**The running order is fixed** by `TEACHING-BRIEF.md` §7 — 40 units, gates included. Follow it by
+default and don't invent or reorder units. A learner who asks for a specific unit gets it — that's
+their call, not drift.
 
 **Read order before teaching anything** (`TEACHING-BRIEF.md` §3): the target statement in
 `EXAM-OBJECTIVES.md` → that statement's sources in `RESOURCES.md` → §1 and §2 of `TEACHING-BRIEF.md`.
