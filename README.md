@@ -68,6 +68,21 @@ well as the teaching. Re-run it and the block is merged, not duplicated.
 Worth doing on this exam in particular: a boundary you personally found confusing is a preview of a
 distractor you'll meet again.
 
+### ⑤ Test yourself across lessons — after a few units
+
+```
+/quiz
+/quiz 10 exam
+```
+
+Lesson quizzes drill one statement at a time. `/quiz` — the kit's own skill, nothing to install —
+builds a fresh cross-statement quiz as an HTML page in `practice/`: practice mode with immediate
+feedback, or a timed exam mode that grades only on submit, paced at the real exam's 2 minutes per
+item. It quizzes only what a completed lesson taught, weighted by the exam blueprint, and never
+repeats a stem you've already faced. When you're done, paste the results block it produces back into
+the session: your score is broken down per statement, and every miss is logged so the next quiz —
+and the next lesson — aim at your actual weaknesses.
+
 ## What's in it
 
 | File | What it holds |
@@ -76,6 +91,8 @@ distractor you'll meet again.
 | `RESOURCES.md` | What to teach each statement from: two or three vetted sources, plus a written tutor prompt |
 | `TEACHING-BRIEF.md` | How to teach it, how to write exam-faithful practice items, and the 47-unit running order |
 | `exam-guide/` | The exam guide PDF itself — v1.0, July 2026 |
+| `.claude/skills/highlight/` | The `/highlight` skill — folds the questions you asked and the corrections you got into that lesson's own file |
+| `.claude/skills/quiz/` | The `/quiz` skill — cross-statement practice quizzes and timed mock exams, generated from your completed lessons |
 
 The running order matters more than it sounds. Thirty of the forty-seven units are lessons; the other
 seventeen are the exam guide's own hands-on exercises, activities and scenario drills, placed so you
@@ -115,10 +132,11 @@ supplies the session.
 from sources fetched in that session, not served from disk. The first one runs longer still, because
 it also builds the shared stylesheet and quiz widget that every later lesson reuses.
 
-**No practice questions ship with it.** Claude writes them during the session. Their structure follows
-the exam guide's own sample questions and rationales, plus the format conventions of an existing mock
-paper — but the content is written fresh each time and has no vetted answer key. Good for drilling
-judgment; not a fixed mock exam.
+**No practice questions ship with it.** Claude writes them during the session — at the end of every
+lesson, and across lessons via `/quiz`. Their structure follows the exam guide's own sample questions
+and rationales, plus the format conventions of an existing mock paper — but the content is written
+fresh each time and has no vetted answer key. Good for drilling judgment; not a fixed mock exam.
+Deliberately so: repeating a bank you've seen measures memory, not judgment.
 
 **Multiple-response items are inferred.** The guide says the exam uses them; no example has ever been
 published, so any you're given is a guess at the shape.
@@ -136,10 +154,12 @@ with the guide's §17 out-of-scope list, reproduced in full, because the most ex
 is studying something that cannot be tested.
 
 It contains no practice questions. `TEACHING-BRIEF.md` §4 teaches a tutor to *write* exam-faithful
-items instead, which is the part community banks get wrong.
+items instead, which is the part community banks get wrong — and the `/quiz` skill applies that
+rulebook whenever you ask to be tested.
 
 The `teach` skill is [Matt Pocock's](https://github.com/mattpocock/skills), MIT licensed, and is not
-part of this repo.
+part of this repo. The `/quiz` skill in `.claude/skills/` is this repo's own and is covered by its
+MIT license.
 
 This kit is MIT licensed — see [`LICENSE`](./LICENSE). That covers the writing in this repo only. The
 PDF in `exam-guide/` is Anthropic's *Claude Certified Architect – Foundations Exam Guide*, v1.0
