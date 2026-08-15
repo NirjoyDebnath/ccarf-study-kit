@@ -25,8 +25,9 @@ pages in `practice/` — drawn only from statements a completed lesson taught, w
 blueprint — and scores pasted-back results into `learning-records/`. Its full rules live in the skill
 file; the two that protect this repo: it writes only to `practice/` and `learning-records/` (never
 `lessons/`, never a kit file), and it reads coverage from each lesson's own kicker line, never from
-filename position — learners jump around the running order. `practice/.quiz-index.json` is its
-derived cache; deleting it is always safe.
+filename position — learners jump around the running order. `practice/.quiz-index/` is its
+derived cache, sharded one file per task statement so a run only rewrites what it touched; deleting
+the whole directory is always safe.
 
 ## The kit files
 
