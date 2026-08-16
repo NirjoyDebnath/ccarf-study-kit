@@ -14,6 +14,21 @@ The repo doubles as a teaching workspace for the
 workspace root and generates `MISSION.md`, `NOTES.md`, `lessons/`, `reference/`, `assets/`, and
 `learning-records/` here.
 
+The repo ships two skills of its own, both under `.claude/skills/`. **`/highlight`**
+(`.claude/skills/highlight/SKILL.md`) captures the questions asked and the misconceptions corrected
+during a finished lesson into the end of that lesson's own HTML file — editing it in place, never
+creating a new file, and merging into the existing block on a re-run rather than appending a second
+one.
+
+**`/quiz`** (`.claude/skills/quiz/SKILL.md`) generates fresh cross-statement practice quizzes as HTML
+pages in `practice/` — drawn only from statements a completed lesson taught, weighted by the exam
+blueprint — and scores pasted-back results into `learning-records/`. Its full rules live in the skill
+file; the two that protect this repo: it writes only to `practice/` and `learning-records/` (never
+`lessons/`, never a kit file), and it reads coverage from each lesson's own kicker line, never from
+filename position — learners jump around the running order. `practice/.quiz-index/` is its
+derived cache, sharded one file per task statement so a run only rewrites what it touched; deleting
+the whole directory is always safe.
+
 ## The kit files
 
 | File | Owns |
@@ -51,8 +66,8 @@ file into another — cross-reference it, so the two can't drift apart.
 
 ## Study output is personal, not repository
 
-`MISSION.md`, `NOTES.md`, `lessons/`, `learning-records/`, `reference/`, and `assets/`
-are gitignored on purpose. They are one learner's progress, not the kit. Never commit them and never
+`MISSION.md`, `NOTES.md`, `lessons/`, `learning-records/`, `reference/`, `assets/`, and
+`practice/` are gitignored on purpose. They are one learner's progress, not the kit. Never commit them and never
 propose removing them from `.gitignore` — the kit stays a clean template that can be `git pull`ed into
 without conflicts.
 
