@@ -80,9 +80,9 @@ are complete current page lists. Use them to confirm a doc exists instead of gue
 
 > **Exam guide §6/§17 also names:** `allowedTools` must include `"Task"` for a coordinator to invoke
 > subagents at all · the `AgentDefinition` config (descriptions, system prompts, tool restrictions) ·
-> **structured state persistence and crash recovery using manifests** · spawning parallel subagents by
-> emitting **multiple Task calls in a single response**, not across separate turns · using structured
-> formats to keep source URLs / document names / page numbers separable for attribution.
+> spawning parallel subagents by emitting **multiple Task calls in a single response**, not across
+> separate turns · using structured formats to keep source URLs / document names / page numbers
+> separable for attribution.
 
 - [Create custom subagents](https://code.claude.com/docs/en/sub-agents) — Claude Code Docs — **the** 1.3 fact: a subagent starts with a fresh, isolated context window; it does not see your conversation history, the skills already invoked, or files already read. The exception is a fork. — 35 min
 - [How we built our multi-agent research system](https://www.anthropic.com/engineering/multi-agent-research-system) — Anthropic Engineering — every subagent needs an objective, an output format, tool/source guidance, and clear task boundaries; vague delegation made subagents duplicate work. — 35 min
@@ -461,7 +461,8 @@ are complete current page lists. Use them to confirm a doc exists instead of gue
 > **Exam guide §17 names the `/memory` command, `/compact`, and the `Explore` subagent** as Claude Code
 > surfaces that may appear. Know what each does to the context window. §6's 5.4 objective also names
 > **crash recovery using structured agent state exports (manifests) that the coordinator loads on
-> resume** — the same mechanism cross-referenced at 1.3.
+> resume and injects into agent prompts** — statement 5.4 is the only place manifests appear, and no
+> listed doc covers them, so the guide is the source (see Gaps).
 
 - [Set up Claude Code in a monorepo or large codebase](https://code.claude.com/docs/en/large-codebases) — Claude Code Docs — **the** page. Where you start determines what loads; `claudeMdExcludes`; `permissions.deny` Read rules for vendored code (and their limit: they don't filter denied paths out of recursive search output); `worktree.sparsePaths`; the `additionalDirectories` vs `--add-dir` access table. — 25 min
 - [Effective context engineering for AI agents](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents) — Anthropic Engineering — just-in-time retrieval: hold lightweight identifiers, load content at runtime. The direct answer for this statement. — 25 min
@@ -543,7 +544,7 @@ Community guides and older posts are stale on all of these. An exam item may use
 
 # Gaps
 
-- **Concepts the exam guide names that no listed resource teaches.** Flagged inline at their task statements; collected here so nothing is lost: **Pydantic** (4.4) · **stratified sampling, labeled validation sets, field-level confidence, accuracy segmentation** (5.5) · **crash recovery using manifests** (1.3) · the **`"other"` + detail-string schema pattern** (4.3) · **temporal data handling and conflict annotation** (5.6). For these, the exam guide *is* the source — there is no doc to read.
+- **Concepts the exam guide names that no listed resource teaches.** Flagged inline at their task statements; collected here so nothing is lost: **Pydantic** (4.4) · **stratified sampling, labeled validation sets, field-level confidence, accuracy segmentation** (5.5) · **crash recovery using manifests** (5.4) · the **`"other"` + detail-string schema pattern** (4.3) · **temporal data handling and conflict annotation** (5.6). For these, the exam guide *is* the source — there is no doc to read.
 - **5.5 (human review & confidence calibration)** — no first-party page targets it. Must be assembled from the five sources listed under 5.5.
 - **3.5 (iterative refinement)** — no dedicated page anywhere; carried by best-practices, skill-authoring best practices, and the Claude Code in Action course.
 - **4.5 (Message Batches API)** — exactly one authoritative source. It is enough, since the exam tests the batch-vs-synchronous tradeoff rather than the API surface.
