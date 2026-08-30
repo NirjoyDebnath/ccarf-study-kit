@@ -276,14 +276,14 @@ are complete current page lists. Use them to confirm a doc exists instead of gue
 
 ### 3.4 — Plan mode vs direct execution
 
-- [Choose a permission mode](https://code.claude.com/docs/en/permission-modes) — Claude Code Docs — **the** page. Full mode table (default/Manual, acceptEdits, plan, auto, dontAsk, bypassPermissions); plan mode is enforced by the tool layer, not Claude's judgment; four ways to enter it; protected paths; auto-mode fallback after 3 consecutive / 20 total classifier blocks, which ABORTS in headless mode. — 25 min
+- [Choose a permission mode](https://code.claude.com/docs/en/permission-modes) — Claude Code Docs — **the** page. Full mode table (default/Manual, acceptEdits, plan, auto, dontAsk, bypassPermissions); plan mode is enforced by the tool layer, not Claude's judgment; four ways to enter it; protected paths; auto-mode fallback after 3 consecutive / 20 total classifier blocks, which resumes prompting — and in a headless `-p` run with no `--permission-prompt-tool`, skips the blocked action and lets the run continue rather than stopping it. — 25 min
 - [Best practices for Claude Code](https://code.claude.com/docs/en/best-practices) — Claude Code Docs — Explore→Plan→Implement→Commit, with the explicit skip rule: "If you could describe the diff in one sentence, skip the plan." — 35 min
 - [How Claude Code works](https://code.claude.com/docs/en/how-claude-code-works) — Claude Code Docs — Shift+Tab mode cycling and checkpoints (and what checkpoints cannot cover: remote side effects). — 25 min
 - [Commands](https://code.claude.com/docs/en/commands) — Claude Code Docs — `/plan` prefixing a single prompt. — 12 min
 - [Claude Code in Action](https://anthropic.skilljar.com/claude-code-in-action) — Anthropic Academy *(free signup)* — the Permission Modes module. — 180 min
 
 **Tutor prompt:**
-> Teach me task statement 3.4. Build the mode table: for default/Manual, acceptEdits, plan, auto, dontAsk and bypassPermissions, state exactly what is auto-approved and what still prompts. Emphasise that plan mode is enforced by the TOOL LAYER, not by Claude choosing to behave. Then give me the "when to plan" heuristic and, crucially, the "when to skip" heuristic — and quiz me with six change requests where I must decide plan vs direct execution and justify on uncertainty, file count and familiarity. Finish with two traps: why `dontAsk` is the right CI mode and what it does to `AskUserQuestion`; and why auto mode aborts a headless session after repeated classifier blocks.
+> Teach me task statement 3.4. Build the mode table: for default/Manual, acceptEdits, plan, auto, dontAsk and bypassPermissions, state exactly what is auto-approved and what still prompts. Emphasise that plan mode is enforced by the TOOL LAYER, not by Claude choosing to behave. Then give me the "when to plan" heuristic and, crucially, the "when to skip" heuristic — and quiz me with six change requests where I must decide plan vs direct execution and justify on uncertainty, file count and familiarity. Finish with two traps: why `dontAsk` is the right CI mode and what it does to `AskUserQuestion`; and what repeated classifier blocks actually do — auto mode pauses into prompting, and a headless `-p` run with no `--permission-prompt-tool` skips the blocked action and keeps going instead of stopping.
 
 ### 3.5 — Iterative refinement
 
@@ -310,7 +310,7 @@ are complete current page lists. Use them to confirm a doc exists instead of gue
 - [Claude Code GitHub Actions](https://code.claude.com/docs/en/github-actions) — Claude Code Docs — `anthropics/claude-code-action@v1`, auto-detection of interactive vs automation mode, `claude_args` passthrough, `--max-turns` cost control. — 20 min
 - [Claude Code GitLab CI/CD](https://code.claude.com/docs/en/gitlab-ci-cd) — Claude Code Docs — the concrete job: `claude -p "…" --permission-mode acceptEdits --allowedTools "Bash Read Edit Write mcp__gitlab"`. — 15 min
 - [Get structured output from agents (Agent SDK)](https://code.claude.com/docs/en/agent-sdk/structured-outputs) — Claude Code Docs — schema validation with built-in re-prompting, and the trap where `subtype === 'success'` but `structured_output` is absent. — 25 min
-- [Choose a permission mode](https://code.claude.com/docs/en/permission-modes) — Claude Code Docs — `dontAsk` as the locked-down CI mode; auto mode aborting in headless. — 25 min
+- [Choose a permission mode](https://code.claude.com/docs/en/permission-modes) — Claude Code Docs — `dontAsk` as the locked-down CI mode; auto mode continuing in headless. — 25 min
 - [Find bugs with ultrareview](https://code.claude.com/docs/en/ultrareview) — Claude Code Docs — `claude ultrareview` as a non-interactive subcommand: exit 0/1/130, `--json`, progress to stderr so stdout stays parseable. *(docs free; running it is a paid feature — read for the pattern)* — 10 min
 - [I passed CCAR-F with 893/1000](https://medium.com/@kishorkukreja/i-passed-anthropics-claude-certified-architect-foundations-exam-with-a-score-of-893-1000-2206c27efd6c) — Medium: Kishor Kukreja — the `-p` flag runs Claude Code non-interactively; without it, pipelines hang. — 10 min
 
